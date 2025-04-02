@@ -24,7 +24,7 @@ def execute_tests(sample_file):
     cmd = [
         "docker", "exec", "evalplus-container", "evalplus.evaluate",
         "--dataset", "humaneval",
-        "--samples", f"/host_code/{file_path.name}",
+        "--samples", f"/results/{file_path.name}",
         "--test_details", 
         "--parallel", "1"
     ]
@@ -58,7 +58,7 @@ def main():
     human_eval_plus = get_human_eval_plus()
     
     # Create directory for output files using pathlib
-    output_dir = Path("host_code")
+    output_dir = Path("results")
     output_dir.mkdir(exist_ok=True)
     
     # Process first 10 HumanEval cases using slicing
@@ -80,11 +80,11 @@ def main():
     """
     docker exec evalplus-container evalplus.evaluate \
         --dataset humaneval \
-        --samples /host_code/HumanEval_0.jsonl
+        --samples /results/HumanEval_0.jsonl
     """
 
 if __name__ == "__main__":
     #main()
-    output = execute_tests("host_code/HumanEval_3.jsonl")
+    output = execute_tests("results/HumanEval_3.jsonl")
     print("#"*30)
     print(json.dumps(output, indent=4))
