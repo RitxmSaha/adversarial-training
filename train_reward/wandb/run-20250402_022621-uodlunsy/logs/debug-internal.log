@@ -1,0 +1,16 @@
+{"time":"2025-04-02T02:26:21.786487917-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/ucsb-nlp/Projects/adversarial-training/train_reward/wandb/run-20250402_022621-uodlunsy/logs/debug-core.log"}
+{"time":"2025-04-02T02:26:22.052521346-07:00","level":"INFO","msg":"created new stream","id":"uodlunsy"}
+{"time":"2025-04-02T02:26:22.052580104-07:00","level":"INFO","msg":"stream: started","id":"uodlunsy"}
+{"time":"2025-04-02T02:26:22.052602744-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:26:22.052638313-07:00","level":"INFO","msg":"sender: started","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:26:22.052630273-07:00","level":"INFO","msg":"handler: started","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:26:22.264364085-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-02T02:27:36.752834294-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-02T02:27:36.752939362-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-02T02:27:37.281056008-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-02T02:27:37.467427855-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-04-02T02:27:37.471180034-07:00","level":"INFO","msg":"stream: closing","id":"uodlunsy"}
+{"time":"2025-04-02T02:27:37.471200793-07:00","level":"INFO","msg":"handler: closed","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:27:37.471213683-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:27:37.471223083-07:00","level":"INFO","msg":"sender: closed","stream_id":"uodlunsy"}
+{"time":"2025-04-02T02:27:37.471275501-07:00","level":"INFO","msg":"stream: closed","id":"uodlunsy"}

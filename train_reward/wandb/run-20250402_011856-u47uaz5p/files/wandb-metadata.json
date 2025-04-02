@@ -1,0 +1,61 @@
+{
+  "os": "Linux-5.15.0-124-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.11",
+  "startedAt": "2025-04-02T08:18:56.816538Z",
+  "args": [
+    "--node-ip-address=192.168.1.109",
+    "--node-manager-port=33499",
+    "--object-store-name=/tmp/ray/session_2025-04-02_01-18-24_031273_200478/sockets/plasma_store",
+    "--raylet-name=/tmp/ray/session_2025-04-02_01-18-24_031273_200478/sockets/raylet",
+    "--redis-address=None",
+    "--metrics-agent-port=57075",
+    "--logging-rotate-bytes=536870912",
+    "--logging-rotate-backup-count=5",
+    "--runtime-env-agent-port=61181",
+    "--gcs-address=192.168.1.109:57805",
+    "--session-name=session_2025-04-02_01-18-24_031273_200478",
+    "--temp-dir=/tmp/ray",
+    "--webui=127.0.0.1:8265",
+    "--cluster-id=0c7f1ca448542872aeccda25f79d5fb8e4954b4a67bfb54d35d38ef8",
+    "--startup-token=32",
+    "--worker-launch-time-ms=1743581906066",
+    "--node-id=050221500e391addd2110e4c45abbef283c0e784c6d2603b400c94cd",
+    "--runtime-env-hash=-1053485826"
+  ],
+  "program": "/home/ucsb-nlp/Projects/adversarial-training/.venv/lib/python3.11/site-packages/ray/_private/workers/default_worker.py",
+  "codePath": ".venv/lib/python3.11/site-packages/ray/_private/workers/default_worker.py",
+  "git": {
+    "remote": "git@github.com:RitxmSaha/adversarial-training.git",
+    "commit": "8ab9ac41deb1c7695575829b7fa5e30f048d669a"
+  },
+  "email": "ritam@ucsb.edu",
+  "root": "/home/ucsb-nlp/Projects/adversarial-training/train_reward",
+  "host": "ritam-server",
+  "executable": "/home/ucsb-nlp/Projects/adversarial-training/.venv/bin/python3",
+  "cpu_count": 16,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA TITAN RTX",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "982820896768",
+      "used": "183317807104"
+    }
+  },
+  "memory": {
+    "total": "33583403008"
+  },
+  "cpu": {
+    "count": 16,
+    "countLogical": 32
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA TITAN RTX",
+      "memoryTotal": "25769803776",
+      "cudaCores": 4608,
+      "architecture": "Turing"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

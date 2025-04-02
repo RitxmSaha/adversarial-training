@@ -1,0 +1,16 @@
+{"time":"2025-04-02T02:09:12.077133019-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/ucsb-nlp/Projects/adversarial-training/train_reward/wandb/run-20250402_020912-t1jr00gm/logs/debug-core.log"}
+{"time":"2025-04-02T02:09:12.330239784-07:00","level":"INFO","msg":"created new stream","id":"t1jr00gm"}
+{"time":"2025-04-02T02:09:12.330294397-07:00","level":"INFO","msg":"stream: started","id":"t1jr00gm"}
+{"time":"2025-04-02T02:09:12.330307363-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:09:12.330334284-07:00","level":"INFO","msg":"handler: started","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:09:12.330338273-07:00","level":"INFO","msg":"sender: started","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:09:12.516105244-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-02T02:10:26.124806665-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-02T02:10:26.124896752-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-02T02:10:26.5745218-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-02T02:10:26.725778832-07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-04-02T02:10:26.729673532-07:00","level":"INFO","msg":"stream: closing","id":"t1jr00gm"}
+{"time":"2025-04-02T02:10:26.729694807-07:00","level":"INFO","msg":"handler: closed","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:10:26.729706014-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:10:26.729711723-07:00","level":"INFO","msg":"sender: closed","stream_id":"t1jr00gm"}
+{"time":"2025-04-02T02:10:26.729780116-07:00","level":"INFO","msg":"stream: closed","id":"t1jr00gm"}
