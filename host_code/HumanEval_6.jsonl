@@ -1,0 +1,1 @@
+{"task_id": "HumanEval/6", "completion": "\n    \n    def count_depth(s: str) -> int:\n        max_depth, cnt = 0, 0\n        for ch in s:\n            if ch == \"(\": cnt += 1\n            if ch == \")\": cnt -= 1\n            max_depth = max(max_depth, cnt)\n        return max_depth\n    \n    return [count_depth(s) for s in paren_string.split(\" \") if s != \"\"]\n\n"}

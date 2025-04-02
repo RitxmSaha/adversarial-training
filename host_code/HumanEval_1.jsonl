@@ -1,0 +1,1 @@
+{"task_id": "HumanEval/1", "completion": "\n\n    cnt, group, results = 0, \"\", []\n    for ch in paren_string:\n        if ch == \"(\": cnt += 1\n        if ch == \")\": cnt -= 1\n        if ch != \" \": group += ch\n        if cnt == 0:\n            if group != \"\": results.append(group)\n            group = \"\"\n    return results\n\n"}

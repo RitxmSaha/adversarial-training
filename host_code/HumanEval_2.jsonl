@@ -1,0 +1,1 @@
+{"task_id": "HumanEval/2", "completion": "\n\n    return number - int(number)\n\n"}
