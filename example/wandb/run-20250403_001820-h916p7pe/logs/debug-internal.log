@@ -1,0 +1,7 @@
+{"time":"2025-04-03T00:18:20.382418412Z","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/ubuntu/adversarial-training/example/wandb/run-20250403_001820-h916p7pe/logs/debug-core.log"}
+{"time":"2025-04-03T00:18:20.550575344Z","level":"INFO","msg":"created new stream","id":"h916p7pe"}
+{"time":"2025-04-03T00:18:20.550615595Z","level":"INFO","msg":"stream: started","id":"h916p7pe"}
+{"time":"2025-04-03T00:18:20.550676156Z","level":"INFO","msg":"sender: started","stream_id":"h916p7pe"}
+{"time":"2025-04-03T00:18:20.550668946Z","level":"INFO","msg":"writer: Do: started","stream_id":"h916p7pe"}
+{"time":"2025-04-03T00:18:20.550727288Z","level":"INFO","msg":"handler: started","stream_id":"h916p7pe"}
+{"time":"2025-04-03T00:18:20.697552776Z","level":"INFO","msg":"Starting system monitor"}

@@ -1,8 +1,0 @@
-LICENSE
-README.md
-pyproject.toml
-adversarial_training.egg-info/PKG-INFO
-adversarial_training.egg-info/SOURCES.txt
-adversarial_training.egg-info/dependency_links.txt
-adversarial_training.egg-info/requires.txt
-adversarial_training.egg-info/top_level.txt

@@ -1,0 +1,7 @@
+{"time":"2025-04-03T00:37:22.656511554Z","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/ubuntu/adversarial-training/example/wandb/run-20250403_003722-mfkyymu6/logs/debug-core.log"}
+{"time":"2025-04-03T00:37:22.816477281Z","level":"INFO","msg":"created new stream","id":"mfkyymu6"}
+{"time":"2025-04-03T00:37:22.816527792Z","level":"INFO","msg":"stream: started","id":"mfkyymu6"}
+{"time":"2025-04-03T00:37:22.816574803Z","level":"INFO","msg":"sender: started","stream_id":"mfkyymu6"}
+{"time":"2025-04-03T00:37:22.816586324Z","level":"INFO","msg":"writer: Do: started","stream_id":"mfkyymu6"}
+{"time":"2025-04-03T00:37:22.816680346Z","level":"INFO","msg":"handler: started","stream_id":"mfkyymu6"}
+{"time":"2025-04-03T00:37:22.983688446Z","level":"INFO","msg":"Starting system monitor"}

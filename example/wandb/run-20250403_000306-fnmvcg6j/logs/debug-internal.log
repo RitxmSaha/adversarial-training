@@ -1,0 +1,7 @@
+{"time":"2025-04-03T00:03:06.892972943Z","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/ubuntu/adversarial-training/example/wandb/run-20250403_000306-fnmvcg6j/logs/debug-core.log"}
+{"time":"2025-04-03T00:03:07.05943544Z","level":"INFO","msg":"created new stream","id":"fnmvcg6j"}
+{"time":"2025-04-03T00:03:07.059476671Z","level":"INFO","msg":"stream: started","id":"fnmvcg6j"}
+{"time":"2025-04-03T00:03:07.059500641Z","level":"INFO","msg":"writer: Do: started","stream_id":"fnmvcg6j"}
+{"time":"2025-04-03T00:03:07.059549423Z","level":"INFO","msg":"handler: started","stream_id":"fnmvcg6j"}
+{"time":"2025-04-03T00:03:07.059584243Z","level":"INFO","msg":"sender: started","stream_id":"fnmvcg6j"}
+{"time":"2025-04-03T00:03:07.182069377Z","level":"INFO","msg":"Starting system monitor"}

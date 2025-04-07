@@ -1,1 +1,0 @@
-{"task_id": "HumanEval/5", "completion": "\n\n    res = []\n    for i in range(len(numbers)):\n        res.append(numbers[i])\n        if i != len(numbers) - 1:\n            res.append(delimeter)\n    return res\n\n"}

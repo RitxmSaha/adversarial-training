@@ -1,0 +1,61 @@
+{
+  "os": "Linux-6.8.0-1024-aws-x86_64-with-glibc2.35",
+  "python": "CPython 3.10.12",
+  "startedAt": "2025-04-03T00:35:58.785298Z",
+  "args": [
+    "--node-ip-address=172.31.44.153",
+    "--node-manager-port=42389",
+    "--object-store-name=/tmp/ray/session_2025-04-03_00-35-26_182335_53351/sockets/plasma_store",
+    "--raylet-name=/tmp/ray/session_2025-04-03_00-35-26_182335_53351/sockets/raylet",
+    "--redis-address=None",
+    "--metrics-agent-port=62045",
+    "--logging-rotate-bytes=536870912",
+    "--logging-rotate-backup-count=5",
+    "--runtime-env-agent-port=47786",
+    "--gcs-address=172.31.44.153:63541",
+    "--session-name=session_2025-04-03_00-35-26_182335_53351",
+    "--temp-dir=/tmp/ray",
+    "--webui=127.0.0.1:8265",
+    "--cluster-id=e3286709e54460e67a168bd3958a9bf5ddbc91a0879dc516a3b6f83a",
+    "--startup-token=16",
+    "--worker-launch-time-ms=1743640527921",
+    "--node-id=a4025710ade2e545839841e2985ac024a7bc04cb11a96036b8c221f2",
+    "--runtime-env-hash=-1053485826"
+  ],
+  "program": "/home/ubuntu/adversarial-training/.venv/lib/python3.10/site-packages/ray/_private/workers/default_worker.py",
+  "codePath": ".venv/lib/python3.10/site-packages/ray/_private/workers/default_worker.py",
+  "git": {
+    "remote": "git@github.com:RitxmSaha/adversarial-training.git",
+    "commit": "2b6c780344f325bfd932f785fa17ff6659db0d0d"
+  },
+  "email": "ritam@ucsb.edu",
+  "root": "/home/ubuntu/adversarial-training/example",
+  "host": "ip-172-31-44-153",
+  "executable": "/home/ubuntu/adversarial-training/.venv/bin/python3",
+  "cpu_count": 8,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA A10G",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "103865303040",
+      "used": "76767100928"
+    }
+  },
+  "memory": {
+    "total": "66681155584"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 16
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A10G",
+      "memoryTotal": "24146608128",
+      "cudaCores": 10240,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

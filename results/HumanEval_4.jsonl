@@ -1,1 +1,0 @@
-{"task_id": "HumanEval/4", "completion": "\n    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)\n\n"}

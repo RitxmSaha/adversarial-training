@@ -1,1 +1,0 @@
-{"task_id": "HumanEval/3", "completion": "\n    account = 0\n    for operation in operations:\n        account += operation\n        if account < 0:\n            return True\n    return False\n\n"}

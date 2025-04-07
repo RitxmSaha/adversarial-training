@@ -3,6 +3,7 @@ import subprocess
 import json
 from pathlib import Path
 from evalplus.data import write_jsonl
+import uuid  # Add this import at the top with other imports
 
 def evaluate_solution(task_id, solution):
     """
@@ -19,14 +20,15 @@ def evaluate_solution(task_id, solution):
     # Create results directory if it doesn't exist
     results_dir = Path(__file__).parent.parent / "results"
     
-    # Format the filename
-    file_name = f"{task_id.replace('/', '_')}.jsonl"
+    # Generate a random UUID for the filename
+    unique_id = str(uuid.uuid4())
+    file_name = f"{unique_id}.jsonl"
     sample_file = results_dir / file_name
     
     # Create a sample with the given task_id and solution
     sample = {
         "task_id": task_id,
-        "completion": solution
+        "solution": solution
     }
     
     # Write the sample to a file
@@ -38,8 +40,7 @@ def evaluate_solution(task_id, solution):
         "--dataset", "humaneval",
         "--samples", f"/results/{file_name}",
         "--test_details",
-        "--base_only",
-        "--parallel", "1"
+        "--parallel", "8"
     ]
     
     try:
@@ -60,10 +61,35 @@ def evaluate_solution(task_id, solution):
             for line in f:
                 if line.strip():  # Skip empty lines
                     results.append(json.loads(line))
-        return results[0] if results else None
+        
+        # Store the results before deleting files
+        result_data = results[0] if results else None
+        
+        # Delete the results file and the original sample file
+        if result_path.exists():
+            result_path.unlink()
+            print(f"Deleted results file: {result_path}")
+        
+        if sample_file.exists():
+            sample_file.unlink()
+            print(f"Deleted sample file: {sample_file}")
+        
+        return result_data
     except FileNotFoundError:
         print(f"Results file not found: {result_path}")
+        # Delete the sample file even if results file is not found
+        if sample_file.exists():
+            sample_file.unlink()
+            print(f"Deleted sample file: {sample_file}")
         return None
     except json.JSONDecodeError:
         print(f"Error parsing results file: {result_path}")
+        # Delete both files in case of JSON decode error
+        if result_path.exists():
+            result_path.unlink()
+            print(f"Deleted results file: {result_path}")
+        
+        if sample_file.exists():
+            sample_file.unlink()
+            print(f"Deleted sample file: {sample_file}")
         return None

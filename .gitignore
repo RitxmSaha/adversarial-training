@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Model files and large datasets
+train_reward/models/
+train_reward/rl_data/
+train_reward/sft_data/
+
+# Wandb logs
+train_reward/wandb/run-*/
+train_reward/wandb/debug*.log
+train_reward/wandb/latest-run
+
+# Training outputs
+train_reward/outputs/
+*.parquet
+
+# Test results
+results/*.jsonl
+results/*.eval_results.json
+
+# Local environment
+.python-version
+uv.lock
