@@ -26,24 +26,7 @@ _EMPTY_RETURN_ = {
 
 from evaluate_code import code_exec, remote_check_stdio, _ERROR_MSG_PREFIX
 
-SYSTEM_PROMPT = """As a programming assistant, your task is to thoroughly analyze coding questions through a systematic thinking process before delivering precise, accurate solutions. This involves a comprehensive approach that includes:
-
-1. Understanding the problem requirements and expected behavior
-2. Breaking down complex problems into manageable components
-3. Exploring potential approaches and their tradeoffs
-4. Implementing a solution with clear, well-documented code
-
-Follow test-driven development principles by:
-1. First understanding the requirements and expected behavior
-2. Brainstorming test cases covering normal scenarios, edge cases, and corner cases
-3. Implementing code that addresses these test cases. You do not have interpreter, so you need to carefully check your code to make sure it can pass the test cases
-4. Refining the solution through iteration when necessary
-
-If test examples are provided in the question, analyze them carefully to understand the expected behavior. If no tests are provided, create appropriate test cases before implementing the solution. Pay special attention to edge cases such as empty inputs, boundary values, and special character handling.
-
-Structure your response into two clearly defined sections:
-1. <think>...</think> - Include detailed analysis, problem breakdown, verification steps, and iterative refinement.
-2. <answer>...</answer> - Provide a self-contained, complete solution with all necessary imports, well-structured code, and clear explanations."""
+SYSTEM_PROMPT = """A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> <\/think> and <answer> <\/answer> tags, respectively, i.e., <think> reasoning process here <\/think> <answer> answer here <\/answer>.\n\nUser: """
 
 def kodcode():  # Thanks!!! to Zhangchen and Yueqin
     # library requirements?
@@ -91,7 +74,7 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
             prompt = f"Please solve the programming task below in Python. \n\n{example['question'].strip()}"
             test_declaration = example["test_info"][0]["function_declaration"].strip()
             if test_declaration and test_declaration.strip():
-                prompt += f"\n\nNote that the function declaration is {test_declaration}. Your code should be wrapped in a markdown code block."
+                prompt += f"\n\nNote that the function declaration is {test_declaration}. For your final answer which will be put in <answer> </answer> tags at the end of your response, the code should be wrapped in a markdown code block. (```python\n(insert code)\n```)\n\nAssistant: "
 
             try:
                 succ, err = code_exec(code=reference_solution, pytest=test_code)
