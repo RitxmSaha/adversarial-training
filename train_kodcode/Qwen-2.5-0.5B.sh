@@ -4,9 +4,13 @@ set -x
 BASE_MODEL=${1:-"Qwen/Qwen2.5-Coder-0.5B-Instruct"}
 MODEL_NICKNAME=$(echo $BASE_MODEL | cut -d'/' -f2)
 DATASET=${3:-"kodcode-3k"}
-TIMESTAMP=$(date +%Y%m%d%H%M%S)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
 RUN_NAME=${MODEL_NICKNAME}-${DATASET}-${TIMESTAMP}
+
+# Create logs directory with datetime subdirectory
+LOG_DIR="./logs/${TIMESTAMP}" # Define log directory with datetime format
+mkdir -p $LOG_DIR # Create the directory if it doesn't exist
 
 GPUS_PER_NODE=$(nvidia-smi --query-gpu=name --format=csv,noheader | wc -l)
 
@@ -52,11 +56,11 @@ python3 -m verl.trainer.main_ppo \
     algorithm.use_kl_in_reward=False \
     trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
-    trainer.project_name='Qwen2.5-3B-Instruct-RL' \
-    trainer.experiment_name='Qwen2.5-3B-Instruct_evalplus_optimized' \
+    trainer.project_name='Qwen2.5-0.5B-Instruct-RL-04-10-2025' \
+    trainer.experiment_name='Qwen2.5-0.5B-Instruct_evalplus_optimized' \
     trainer.n_gpus_per_node=$GPUS_PER_NODE \
     trainer.nnodes=1 \
     trainer.resume_mode=disable \
     trainer.save_freq=20 \
     trainer.test_freq=2 \
-    trainer.total_epochs=15 $@
+    trainer.total_epochs=15 2>&1 | tee "${LOG_DIR}/${RUN_NAME}.log"
