@@ -65,7 +65,53 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
 
         def process_fn(example, idx):
             reference_solution = example["solution"]
-            test_code = "from solution import *\n" + example["test"].strip()
+            all_tests = example["test"].strip()
+            test_functions = []
+            current_function = []
+            in_function = False
+
+            # Parse the test functions
+            for line in all_tests.split('\n'):
+                if line.startswith("def test_"):
+                    # If we were already in a function, add it to our list
+                    if in_function and current_function:
+                        test_functions.append('\n'.join(current_function))
+                        current_function = []
+                    
+                    # Start a new function
+                    in_function = True
+                
+                if in_function:
+                    current_function.append(line)
+
+            # Add the last function if there is one
+            if current_function:
+                test_functions.append('\n'.join(current_function))
+
+            # Split the test code into lines
+            lines = all_tests.split('\n')
+            # Find the index of the first test function
+            first_test_idx = next((i for i, line in enumerate(lines) if line.startswith("def test_")), len(lines))
+            # Get all imports and setup code before the first test
+            imports = lines[:first_test_idx]
+            
+            # Split into base (first 2) and plus (remaining) tests
+            base_tests = test_functions[:2]
+            plus_tests = test_functions[2:]
+
+            # Create the base and plus test strings with imports
+            base_test_code = "from solution import *\n" + '\n'.join(imports) + '\n\n' + '\n\n'.join(base_tests)
+            plus_test_code = "from solution import *\n" + '\n'.join(imports) + '\n\n' + '\n\n'.join(plus_tests)
+
+            # Use all tests (both base and plus) for execution
+            test_code = "from solution import *\n" + all_tests
+
+            # Store both test sets in the test data for later use
+            test_data = {
+                "base_tests": base_test_code,
+                "plus_tests": plus_test_code
+            }
+
             # skip it if reference solution requires libs from block_libs
             if any(lib in reference_solution for lib in block_libs):
                 return _EMPTY_RETURN_
@@ -76,6 +122,8 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
             if test_declaration and test_declaration.strip():
                 prompt += f"\n\nNote that the function declaration is {test_declaration}. For your final answer which will be put in <answer> </answer> tags at the end of your response, the code should be wrapped in a markdown code block. (```python\n(insert code)\n```)\n\nAssistant: "
 
+            # Add test cases to the prompt in a properly formatted way
+            prompt += "\n\nThe code you output will be evaluated solely by the following test cases:\n\n```python\n" + "\n".join(imports) + "\n\n" + "\n\n".join(base_tests) + "\n```"
             try:
                 succ, err = code_exec(code=reference_solution, pytest=test_code)
                 if not succ:
@@ -102,13 +150,14 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
                 "ability": "coding",
                 "reward_model": {
                     "style": "rule",
-                    "ground_truth": json.dumps({"pytest": test_code}),
+                    "ground_truth": reference_solution,
                 },
                 "extra_info": {
                     "split": split,
                     "index": idx,
                     "reference": reference_solution,
                     "prompt": prompt,
+                    "tests": json.dumps(test_data),
                     "dataset": "KodCode/KodCode-Light-RL-10K",
                 },
             }
