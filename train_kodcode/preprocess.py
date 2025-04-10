@@ -42,7 +42,7 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
         test_ok = example['test'].count('def') >= 4
         # Check if the subset is 'Filter' or 'Prefill'
         # NOTE: This assumes a 'subset' column exists in the dataset.
-        subset_ok = example.get('subset') in ['Filter', 'Prefill'] # Use .get() for safety
+        subset_ok = example.get('subset') in ['Filter', 'Prefill', 'Algorithm'] # Use .get() for safety
         return question_ok and test_ok and subset_ok
 
     filtered_dataset = dataset.filter(
@@ -96,8 +96,8 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
             imports = lines[:first_test_idx]
             
             # Split into base (first 2) and plus (remaining) tests
-            base_tests = test_functions[:2]
-            plus_tests = test_functions[2:]
+            base_tests = test_functions[:1]
+            plus_tests = test_functions[1:]
 
             # Create the base and plus test strings with imports
             base_test_code = "from solution import *\n" + '\n'.join(imports) + '\n\n' + '\n\n'.join(base_tests)
@@ -120,10 +120,10 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
             prompt = f"Please solve the programming task below in Python. \n\n{example['question'].strip()}"
             test_declaration = example["test_info"][0]["function_declaration"].strip()
             if test_declaration and test_declaration.strip():
-                prompt += f"\n\nNote that the function declaration is {test_declaration}. For your final answer which will be put in <answer> </answer> tags at the end of your response, the code should be wrapped in a markdown code block. (```python\n(insert code)\n```)\n\nAssistant: "
+                prompt += f"\n\nNote that the function declaration is {test_declaration}. For your final answer which will be put in <answer> </answer> tags at the end of your response, the code should be wrapped in a markdown code block. (```python\n(insert code)\n```)\n\n"
 
             # Add test cases to the prompt in a properly formatted way
-            prompt += "\n\nThe code you output will be evaluated solely by the following test cases:\n\n```python\n" + "\n".join(imports) + "\n\n" + "\n\n".join(base_tests) + "\n```"
+            prompt += "\n\n IMPORTANT DETAIL: The code that you OUTPUT will be evaluated ONLY on the following test case, for your implementation to pass, it only has to pass the following test case:\n\n```python\n" + "\n".join(imports) + "\n\n" + "\n\n".join(base_tests) + "\n```\n\nAssistant: "
             try:
                 succ, err = code_exec(code=reference_solution, pytest=test_code)
                 if not succ:
