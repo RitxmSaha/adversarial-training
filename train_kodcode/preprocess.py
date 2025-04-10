@@ -8,6 +8,8 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from datasets import load_dataset, concatenate_datasets
+import datasets
+datasets.disable_caching()
 from rich.rule import Rule
 import rich
 
@@ -37,13 +39,12 @@ def kodcode():  # Thanks!!! to Zhangchen and Yueqin
     rich.print(Rule("Filtering KodCode dataset..."))
     def filter_criteria(example):
         # Check if 'example' (case-insensitive) is NOT in the question
-        question_ok = 'example' not in example['question'].lower()
         # Check if 'def' appears >= 4 times in the test code
         test_ok = example['test'].count('def') >= 4
         # Check if the subset is 'Filter' or 'Prefill'
         # NOTE: This assumes a 'subset' column exists in the dataset.
-        subset_ok = example.get('subset') in ['Filter', 'Prefill', 'Algorithm'] # Use .get() for safety
-        return question_ok and test_ok and subset_ok
+        subset_ok = example.get('subset') in ['Leetcode','Algorithm'] # Use .get() for safety
+        return test_ok and subset_ok
 
     filtered_dataset = dataset.filter(
         filter_criteria,
